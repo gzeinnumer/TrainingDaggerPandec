@@ -38,7 +38,7 @@ class AppModule {
     @Singleton
     static Retrofit providesRetrofit(){
         return new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com")
+                .baseUrl("https://jsonplaceholder.typicode.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

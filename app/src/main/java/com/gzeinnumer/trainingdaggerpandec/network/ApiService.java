@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 public interface ApiService {
 
     //https://jsonplaceholder.typicode.com/posts?userId=1
-    @GET("/posts")
+    @GET("posts")
     Call<List<ResponsePost>> getPost(
             @Query("userId") int id
     );

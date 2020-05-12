@@ -1,5 +1,6 @@
 package com.gzeinnumer.trainingdaggerpandec;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -13,17 +14,18 @@ public class SessionManager {
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
 
+    @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context) {
         prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = prefs.edit();
     }
 
-    public void setId(int id){
+    void setId(int id){
         editor.putInt(KEY_ID, id);
         editor.apply();
     }
 
-    public int getId(){
+    int getId(){
         return prefs.getInt(KEY_ID,0);
     }
 }
