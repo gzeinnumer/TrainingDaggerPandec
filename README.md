@@ -306,6 +306,12 @@ class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+
+    @Singleton
+    @Provides
+    static ApiService providesApiService(Retrofit retrofit){
+        return retrofit.create(ApiService.class);
+    }//end todo 20
 }
 ```
 
