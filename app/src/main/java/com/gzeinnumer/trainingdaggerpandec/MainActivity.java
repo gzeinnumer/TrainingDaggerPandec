@@ -1,11 +1,10 @@
 package com.gzeinnumer.trainingdaggerpandec;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.gzeinnumer.trainingdaggerpandec.dagger.Named;
 import com.gzeinnumer.trainingdaggerpandec.network.ApiService;
 import com.gzeinnumer.trainingdaggerpandec.network.ResponsePost;
 
@@ -28,6 +27,9 @@ public class MainActivity extends DaggerAppCompatActivity {
     //todo 13
     @Inject
     String str;
+    @Inject
+    @Named("str")
+    String strNamed;
 
     //todo 16
     @Inject
@@ -51,7 +53,8 @@ public class MainActivity extends DaggerAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //todo 14
-        myLogD(TAG, "String Inject : "+ str);
+        myLogD(TAG, "String Inject : " + str);
+        myLogD(TAG, "String Inject : " + strNamed);
 
         //todo 17
         Toast.makeText(context, "String Inject : "+ str, Toast.LENGTH_LONG).show();

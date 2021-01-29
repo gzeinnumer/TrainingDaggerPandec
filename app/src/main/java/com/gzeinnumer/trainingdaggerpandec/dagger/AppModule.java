@@ -3,7 +3,6 @@ package com.gzeinnumer.trainingdaggerpandec.dagger;
 import android.app.Application;
 import android.content.Context;
 
-import com.google.gson.Gson;
 import com.gzeinnumer.trainingdaggerpandec.SessionManager;
 import com.gzeinnumer.trainingdaggerpandec.network.ApiService;
 
@@ -11,7 +10,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -22,14 +20,22 @@ class AppModule {
     //todo 12
     @Singleton
     @Provides
-    static String providesString(){
+    static String providesString() {
         return "ProvideString";
-    }//end todo 12
+    }
+
+    @Singleton
+    @Provides
+    @Named("str")
+    static String providesStringNamed() {
+        return "ProvideStringNamed";
+    }
+    //end todo 12
 
     //todo 15
     @Singleton
     @Provides
-    static Context provideContext(Application application){
+    static Context provideContext(Application application) {
         return application.getApplicationContext();
     }//end todo 15
 

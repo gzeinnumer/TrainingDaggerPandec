@@ -501,6 +501,39 @@ public class MainActivity extends DaggerAppCompatActivity {
 
 ---
 
+- `@Named`
+```java
+//1
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface Named {
+    String value() default "";
+}
+
+//2
+@Singleton
+@Provides
+static String providesString(){
+    return "ProvideString";
+}
+@Singleton
+@Provides
+@Named("str")
+static String providesStringNamed(){
+    return "ProvideStringNamed";
+}
+
+//3
+@Inject
+String str;
+@Inject
+@Named("str")
+String strNamed;
+```
+
+---
+
 ```
 Copyright 2020 M. Fadli Zein
 ```
