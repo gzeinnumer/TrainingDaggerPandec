@@ -501,7 +501,7 @@ public class MainActivity extends DaggerAppCompatActivity {
 
 ---
 
-- `@Named`
+### `@Named`
 ```java
 //1
 @Qualifier
